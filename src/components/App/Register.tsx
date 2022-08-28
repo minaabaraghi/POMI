@@ -6,6 +6,8 @@ import Dialog from "@mui/material/Dialog";
 import axios from "axios";
 import * as Yup from "yup";
 import { useFormik } from "formik";
+import { Typography, Button, Grid } from '@mui/material';
+import AddTwoToneIcon from '@mui/icons-material/AddTwoTone';
 import "./styles.css";
 const Register = ({getUserAfterPUT}:{getUserAfterPUT:any}) => {
   const [open, setOpen] = React.useState(false);
@@ -63,7 +65,9 @@ const Register = ({getUserAfterPUT}:{getUserAfterPUT:any}) => {
   };
   return (
     <div >
-      <button className="pointer btn btn-primary " onClick={handleClickOpen} >Add User</button>
+      <Button sx={{ mt: { xs: 2, md: 0 } }}
+          variant="contained"
+          startIcon={<AddTwoToneIcon fontSize="small" />} onClick={handleClickOpen} >Add User</Button>
       <Dialog open={open} onClose={handleClose}>
       <main className="form-signin w-100 m-auto " >
       <form>

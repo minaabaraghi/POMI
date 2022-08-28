@@ -15,7 +15,11 @@ import EditForm from "./EditForm";
 import "./styles.css";
 import getUser from "../../services/getUser";
 import Register from "./Register";
-
+import { Helmet } from 'react-helmet-async';
+import PageHeader from './PageHeader';
+import PageTitleWrapper from 'src/components/PageTitleWrapper';
+import { Grid, Container } from '@mui/material';
+import Footer from 'src/components/Footer';
 export default function CardList() {
   const [user, setUser] = useState([{}]);
 
@@ -60,10 +64,17 @@ export default function CardList() {
   };
 
   return (
-    <div  className="test-content-wrapper">
-      <Register getUserAfterPUT={getUserAfterPUT}/>
+    <div  >
+      <Helmet>
+        <title>Table of  Users</title>
+      </Helmet>
+      <PageTitleWrapper>
+        <PageHeader getUserAfterPUT={getUserAfterPUT} />
+      
+      </PageTitleWrapper>
       <br />
 
+      <Container maxWidth="lg">
       <table className="table ">
         <thead className="thead-light">
           <tr>
@@ -103,6 +114,8 @@ export default function CardList() {
           })}
         </tbody>
       </table>
+      </Container>
+      <Footer />
     </div>
   );
 }

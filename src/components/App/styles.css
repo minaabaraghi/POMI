@@ -175,14 +175,19 @@ span {
 .login-page{
   padding: 10px;
   margin-top: 200px !important;
-  background-color: lightblue;
-  border-radius: 15px;
+  background-color: #ffff;
+  border-radius: 8px;
   margin: auto;
+  height: 50%;
   
+}
+.form-floating{
+  padding-top: 5%;
+
 }
 .minameee{
  color:blueviolet;
  text-align: center;
- 
+ padding-top: 8%;
 }
 

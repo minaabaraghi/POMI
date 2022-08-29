@@ -74,6 +74,7 @@ export default function CardList() {
       <br />
 
       <Container maxWidth="lg">
+        <Grid>
         <table className="table ">
           <thead className="thead-light">
             <tr>
@@ -113,6 +114,7 @@ export default function CardList() {
             })}
           </tbody>
         </table>
+        </Grid>
       </Container>
       <Footer />
     </div>

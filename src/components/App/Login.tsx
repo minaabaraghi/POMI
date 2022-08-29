@@ -3,6 +3,8 @@ import { toast } from "react-toastify";
 import login from "../../services/login";
 import { Link ,useNavigate} from "react-router-dom";
 import './styles.css'
+import { Button } from "@mui/material";
+import LockIcon from '@mui/icons-material/Lock';
 //todo: Convert to funcation base
 export default function LoginComponent() {
   //todo: get username and password from form
@@ -18,10 +20,11 @@ export default function LoginComponent() {
     });
   };
   return (
-    <div>
-        <main className="form-signin w-100 m-auto login-page">
+    
+    <main className="form-signin w-150  login-page">
       <form>
-        <h1 className="h3 mb-4 fw-normal text-center"> login in</h1>
+      <h1 className="h3 mb-4 fw-normal text-center" color="blueviolet"> Sign in to POMI</h1>
+        
         <div className="form-floating">
           <input
             className="form-control"
@@ -41,17 +44,17 @@ export default function LoginComponent() {
           />
           <label htmlFor="floatingPassword">Password</label>
         </div>
-        <button
-          className="w-100 btn btn-lg btn-primary"
+        <Button color="primary" fullWidth
           type="button"
           onClick={login1}
         >
+          <LockIcon/>
           Sign in
-        </button>
+        </Button>
       </form>
+      <div className="minameee">@_minameee</div>
     </main>
-        <div className="minameee">@_minameee</div>
-    </div>
+    
 
   );
 }

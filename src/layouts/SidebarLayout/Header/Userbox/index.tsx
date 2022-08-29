@@ -76,6 +76,8 @@ function HeaderUserbox() {
     setOpen(false);
   };
   const signOutHandler = (): void => {
+    // localStorage.clear();
+    localStorage.removeItem("token");
     navigate('/');
   };
  

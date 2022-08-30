@@ -1,7 +1,7 @@
 import { FC, ReactNode } from 'react';
 import PropTypes from 'prop-types';
-import { Outlet } from 'react-router-dom';
-
+import { Outlet ,Route,Routes} from 'react-router-dom';
+import PrivateRoutes from 'src/utils/PrivateRoutes';
 import { Box } from '@mui/material';
 
 interface BaseLayoutProps {
@@ -16,7 +16,7 @@ const BaseLayout: FC<BaseLayoutProps> = ({ children }) => {
         height: '100%'
       }}
     >
-      {children || <Outlet />}
+      {children ||  <Outlet/>}
     </Box>
   );
 };

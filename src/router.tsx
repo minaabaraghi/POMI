@@ -80,10 +80,10 @@ const StatusMaintenance = Loader(
   lazy(() => import('src/content/pages/Status/Maintenance'))
 );
 
-const routes: RouteObject[] = [
+const routes= (exiteToken :any) => [
   {
     path: '',
-    element: <BaseLayout />,
+    element: !exiteToken ? <BaseLayout /> : <Navigate to="/login" />,
     children: [
       {
         path: '/',
@@ -126,7 +126,7 @@ const routes: RouteObject[] = [
   },
   {
     path: 'dashboards',
-    element: <SidebarLayout />,
+    element: exiteToken ? <SidebarLayout /> : <Navigate to="/login" />,
     children: [
       {
         path: '',
@@ -144,7 +144,7 @@ const routes: RouteObject[] = [
   },
   {
     path: 'management',
-    element: <SidebarLayout />,
+    element: exiteToken ? <SidebarLayout /> : <Navigate to="/login" />,
     children: [
       {
         path: '',
@@ -179,7 +179,7 @@ const routes: RouteObject[] = [
   },
   {
     path: '/components',
-    element: <SidebarLayout />,
+    element: exiteToken ? <SidebarLayout /> : <Navigate to="/login" />,
     children: [
       {
         path: '',

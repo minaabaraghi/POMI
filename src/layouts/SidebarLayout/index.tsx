@@ -1,9 +1,10 @@
 import { FC, ReactNode } from 'react';
 import { Box, alpha, lighten, useTheme } from '@mui/material';
-import { Outlet } from 'react-router-dom';
+import { Outlet,Route,Routes } from 'react-router-dom';
 
 import Sidebar from './Sidebar';
 import Header from './Header';
+import PrivateRoutes from 'src/utils/PrivateRoutes';
 
 interface SidebarLayoutProps {
   children?: ReactNode;
@@ -56,7 +57,7 @@ const SidebarLayout: FC<SidebarLayoutProps> = () => {
           }}
         >
           <Box display="block">
-            <Outlet />
+          <Outlet/>
           </Box>
         </Box>
       </Box>

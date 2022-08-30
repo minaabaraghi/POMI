@@ -16,7 +16,7 @@ const PrivateRoutes = () => {
     }
 
     return (
-        (exiteToken) ? <Outlet /> : <Navigate to="/" />
+        (exiteToken) ? <Outlet /> : <Navigate to="/Login" />
     )
 }
 

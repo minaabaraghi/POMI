@@ -1,7 +1,7 @@
 import { FC, ReactNode } from 'react';
 import PropTypes from 'prop-types';
 import { Outlet ,Route,Routes} from 'react-router-dom';
-import PrivateRoutes from 'src/utils/PrivateRoutes';
+
 import { Box } from '@mui/material';
 
 interface BaseLayoutProps {

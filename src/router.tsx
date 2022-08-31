@@ -83,15 +83,15 @@ const StatusMaintenance = Loader(
 const routes= (exiteToken :any) => [
   {
     path: '',
-    element: !exiteToken ? <BaseLayout /> : <Navigate to="/login" />,
+    element:  <BaseLayout /> ,
     children: [
       {
-        path: '/',
+        path: '/Login',
         element: <Login />
       },
       {
-        path: 'Login',
-        element: <Navigate to="/" replace />
+        path: '/',
+        element: <Navigate to="Login" replace />
       },
       {
         path: 'status',

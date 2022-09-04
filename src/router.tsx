@@ -18,6 +18,8 @@ const Loader = (Component) => (props) =>
 
 // const Overview = Loader(lazy(() => import('src/content/overview')));
 const Login = Loader(lazy(() => import('src/components/App/Login')));
+//master page for movie
+const MoviesPage = Loader(lazy(() => import('src/content/master')));
 
 // Dashboards
 
@@ -140,6 +142,21 @@ const routes= (exiteToken :any) => [
         path: 'messenger',
         element: <Messenger />
       }
+    ]
+  },
+  {
+    path: 'MoviesPage',
+    element: exiteToken ? <SidebarLayout /> : <Navigate to="/login" />,
+    children: [
+      {
+        path: '',
+        element: <Navigate to="MoviesPage" replace />
+      },
+      {
+        path: 'MoviesPage',
+        element: <MoviesPage />
+      },
+    
     ]
   },
   {

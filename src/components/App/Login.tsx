@@ -15,7 +15,7 @@ export default function LoginComponent() {
     login(username, password).then((result) => {
       if (result) {
         toast.success("ورود موفقیت آمیز");
-        return navigate('/dashboards/crypto');
+        return navigate('/MoviesPage');
       }
     });
   };

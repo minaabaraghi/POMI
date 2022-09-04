@@ -7,7 +7,7 @@ import { Grid, Container } from '@mui/material';
 // import RecentActivity from './RecentActivity';
 // import Feed from './Feed';
 // import PopularTags from './PopularTags';
-// import MyCards from './MyCards';
+ import MyCards from './MyCards';
 // import Addresses from './Addresses';
 
 function ManagementUserProfile() {
@@ -36,6 +36,7 @@ function ManagementUserProfile() {
           alignItems="stretch"
           spacing={3}
         >
+           
           <Grid item xs={12} md={8}>
             {/* {<ProfileCover user={user} />} */}
           </Grid>
@@ -54,6 +55,7 @@ function ManagementUserProfile() {
           <Grid item xs={12} md={5}>
             {/* <Addresses /> */}
           </Grid>
+          <MyCards/>
         </Grid>
       </Container>
       <Footer />

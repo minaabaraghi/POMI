@@ -4,11 +4,11 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
-import dataMovie from 'src/data/response.json';
 
 
 
-function MyCards() {
+
+function MyCards({dataMovie}:{dataMovie:any}) {
   const data = {
     savedCards: 7
   };
@@ -24,7 +24,7 @@ function MyCards() {
   return (
         
     <>
-      { dataMovie.Search.map((item:any,index:number)=>(
+      { dataMovie.map((item:any,index:number)=>(
            <Card key={index} sx={{ maxWidth: 345 }}>
            <CardActionArea>
              <CardMedia

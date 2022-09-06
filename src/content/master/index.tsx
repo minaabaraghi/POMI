@@ -1,14 +1,16 @@
 import { Helmet } from 'react-helmet-async';
 import Footer from 'src/components/Footer';
-
+import { useState } from 'react';
 import { Grid, Container } from '@mui/material';
-
+import './master.css';
 // import ProfileCover from './ProfileCover';
 // import RecentActivity from './RecentActivity';
 // import Feed from './Feed';
 // import PopularTags from './PopularTags';
- import MyCards from './MyCards';
+import MyCards from './MyCards';
+import dataMovie from 'src/data/response.json';
 // import Addresses from './Addresses';
+import Text from './../../components/Text/index';
 
 function ManagementUserProfile() {
   const user = {
@@ -22,12 +24,29 @@ function ManagementUserProfile() {
     location: 'Barcelona, Spain',
     followers: '465'
   };
+  const [allMovie, setAllMovie] = useState(dataMovie.Search);
+  const [Movie, setMovie] = useState(dataMovie.Search);
+
+  const filterCards = (event:any) => {
+      const value = event.target.value.toLowerCase();
+      const filterMovie = allMovie.filter((movie) =>
+        (movie.Title.toLowerCase().includes(value))
+      );
+      setMovie(filterMovie);
+     
+  };
 
   return (
     <>
       <Helmet>
         <title>User Details - Management</title>
       </Helmet>
+        <input
+          className="searchBoxMovie"
+          placeholder="search..."
+          onInput={filterCards}
+          type="Text"
+        />
       <Container sx={{ mt: 3 }} maxWidth="lg">
         <Grid
           container
@@ -36,7 +55,6 @@ function ManagementUserProfile() {
           alignItems="stretch"
           spacing={3}
         >
-           
           <Grid item xs={12} md={8}>
             {/* {<ProfileCover user={user} />} */}
           </Grid>
@@ -55,7 +73,7 @@ function ManagementUserProfile() {
           <Grid item xs={12} md={5}>
             {/* <Addresses /> */}
           </Grid>
-          <MyCards/>
+          <MyCards dataMovie={Movie} />
         </Grid>
       </Container>
       <Footer />

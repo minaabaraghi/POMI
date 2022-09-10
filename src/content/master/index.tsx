@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 import Footer from 'src/components/Footer';
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import { Grid, Container } from '@mui/material';
 import './master.css';
 // import ProfileCover from './ProfileCover';
@@ -11,6 +11,7 @@ import MyCards from './MyCards';
 import dataMovie from 'src/data/response.json';
 // import Addresses from './Addresses';
 import Text from './../../components/Text/index';
+import movies from 'src/services/movies';
 
 function ManagementUserProfile() {
   const user = {
@@ -24,8 +25,17 @@ function ManagementUserProfile() {
     location: 'Barcelona, Spain',
     followers: '465'
   };
-  const [allMovie, setAllMovie] = useState(dataMovie.Search);
-  const [Movie, setMovie] = useState(dataMovie.Search);
+  const [allMovie, setAllMovie] = useState([]);
+  const [Movie, setMovie] = useState([]);
+
+useEffect(() => {
+  movies().then((res:any) => {
+    setAllMovie(res);
+    setMovie(res);
+    console.log('res',res);
+  })
+  
+}, []);
 
   const filterCards = (event:any) => {
       const value = event.target.value.toLowerCase();

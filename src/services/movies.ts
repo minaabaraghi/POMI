@@ -2,18 +2,19 @@
 import { AxiosRequestConfig } from "axios"
 import axiosInstance from "./axiosInstance"
 import axios from 'axios';
-const movies = (search:string): Promise<boolean> => {
+const movies = (): Promise<boolean> => {
     const reqConfig: AxiosRequestConfig = {
         method: 'POST',
-        url: 'users',
+        url: 'movies/search',
         headers: {
             Authorization: 'Bearer ' + localStorage.getItem('token')
         },
-        data:{search},
+        data:{},
                
     }
 
     return axiosInstance(reqConfig).then((res) => {
+        console.log('res',res);
       return res.data;
        
     });

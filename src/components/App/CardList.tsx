@@ -46,7 +46,6 @@ export default function CardList() {
               if (result) {
                 toast.success('کاربر با موفقیت حذف شد');
                 users().then((res) => {
-                  console.log(res);
                   setUser(res);
                 });
               }

@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 import Footer from 'src/components/Footer';
-import { useState,useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Grid, Container } from '@mui/material';
 import './master.css';
 // import ProfileCover from './ProfileCover';
@@ -28,22 +28,28 @@ function ManagementUserProfile() {
   const [allMovie, setAllMovie] = useState([]);
   const [Movie, setMovie] = useState([]);
 
-useEffect(() => {
-  movies().then((res:any) => {
-    setAllMovie(res);
-    setMovie(res);
-    console.log('res',res);
-  })
-  
-}, []);
+  useEffect(() => {
+    // movies({ search: 'titanic' }).then((res: any) => {
+    //   setAllMovie(res.Search);
+    //   setMovie(res.Search);
+    //   console.log('res', res.Search);
+    // })
 
-  const filterCards = (event:any) => {
-      const value = event.target.value.toLowerCase();
-      const filterMovie = allMovie.filter((movie) =>
-        (movie.Title.toLowerCase().includes(value))
-      );
-      setMovie(filterMovie);
-     
+  }, []);
+
+  const filterCards = (event: any) => {
+    if (event.key !== 'Enter') return;
+    
+    movies({ search: event.target.value.toLowerCase() }).then((res: any) => {
+      setAllMovie(res.Search);
+      setMovie(res.Search);
+    })
+    // const value = event.target.value.toLowerCase();
+    // const filterMovie = allMovie.filter((movie) =>
+    //   (movie.Title.toLowerCase().includes(value))
+    // );
+    // setMovie(filterMovie);
+
   };
 
   return (
@@ -51,12 +57,12 @@ useEffect(() => {
       <Helmet>
         <title>User Details - Management</title>
       </Helmet>
-        <input
-          className="searchBoxMovie"
-          placeholder="search..."
-          onInput={filterCards}
-          type="Text"
-        />
+      <input
+        className="searchBoxMovie"
+        placeholder="search..."
+        onKeyDown={filterCards}
+        type="Text"
+      />
       <Container sx={{ mt: 3 }} maxWidth="lg">
         <Grid
           container

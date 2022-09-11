@@ -55,7 +55,6 @@ const Register = ({getUserAfterPUT}:{getUserAfterPUT:any}) => {
     ).then((result) => {
       if (result) {
         toast.success("ثبت موفقیت آمیز");
-        console.log(result,"mina");
         
         setOpen(false);
         getUserAfterPUT();

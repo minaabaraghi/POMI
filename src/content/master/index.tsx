@@ -40,9 +40,11 @@ function ManagementUserProfile() {
   const filterCards = (event: any) => {
     if (event.key !== 'Enter') return;
     
-    movies({ search: event.target.value.toLowerCase() }).then((res: any) => {
-      setAllMovie(res.Search);
-      setMovie(res.Search);
+      movies({ search: event.target.value.toLowerCase() }).then((res: any) => {
+       if(res!=undefined){
+        setAllMovie(res.Search);
+        setMovie(res.Search);
+       }
     })
     // const value = event.target.value.toLowerCase();
     // const filterMovie = allMovie.filter((movie) =>
@@ -89,7 +91,7 @@ function ManagementUserProfile() {
           <Grid item xs={12} md={5}>
             {/* <Addresses /> */}
           </Grid>
-          <MyCards dataMovie={Movie} />
+          {dataMovie && <MyCards dataMovie={Movie} />}
         </Grid>
       </Container>
       <Footer />

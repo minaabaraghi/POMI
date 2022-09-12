@@ -14,7 +14,8 @@ function MyCards({dataMovie}:{dataMovie:any}) {
   };
 
   const [selectedValue, setSelectedValue] = useState('a');
-
+  console.log('log new',dataMovie);
+  
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setSelectedValue(event.target.value);
   };

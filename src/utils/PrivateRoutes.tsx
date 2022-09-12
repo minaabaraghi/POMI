@@ -10,7 +10,7 @@ const PrivateRoutes = () => {
     if (decodedToken.exp * 1000 < currentDate.getTime()) {
         //Todo: Mina - redirect to login page 
     } else {
-        setIsToken(true);
+        setIsToken(true); 
     }
 
     return (

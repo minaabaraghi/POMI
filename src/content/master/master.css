@@ -17,3 +17,6 @@
   .cardIMG{
     background-size: contain;
   }
+  .cardMovie{
+    margin: 2%;
+  }

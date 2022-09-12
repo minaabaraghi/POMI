@@ -2,7 +2,7 @@
 import { AxiosRequestConfig } from "axios"
 import axiosInstance from "./axiosInstance"
 import axios from 'axios';
-const movies = (data): Promise<boolean> => {
+const movies = (data:any): Promise<boolean> => {
     const reqConfig: AxiosRequestConfig = {
         method: 'POST',
         url: 'movies/search',

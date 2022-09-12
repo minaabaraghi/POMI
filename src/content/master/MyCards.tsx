@@ -25,13 +25,15 @@ function MyCards({dataMovie}:{dataMovie:any}) {
         
     <>
       { dataMovie.map((item:any,index:number)=>(
-           <Card key={index} sx={{ maxWidth: 345 }}>
+           <Card key={index} sx={{ maxWidth: 345,margin:'auto' }}>
            <CardActionArea>
              <CardMedia
                component="img"
-               height="140"
+               height="140px"
+               width="100px"
                image={item.Poster}
                alt="green iguana"
+               className='cardIMG'
              />
              <CardContent>
                <Typography gutterBottom variant="h5" component="div">

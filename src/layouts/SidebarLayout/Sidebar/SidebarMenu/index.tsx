@@ -265,7 +265,7 @@ function SidebarMenu() {
                   to="/management/userList"
                   startIcon={<TableChartTwoToneIcon />}
                 >
-                  User List
+                  Users
                 </Button>
               </ListItem>
             </List>

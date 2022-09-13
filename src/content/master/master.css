@@ -11,12 +11,14 @@
     margin-top: 10px;
   }
   .css-o69gx8-MuiCardMedia-root{
-    height:140px;
-    background-size: contain;
+    /* height:"200px" !important; */
+    
   }
   .cardIMG{
-    background-size: contain;
-    height:140px;
+    
+    
+
+    object-fit:fill;
   }
   .cardMovie{
     margin: 2%;

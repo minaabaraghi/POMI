@@ -30,7 +30,7 @@ function MyCards({dataMovie}:{dataMovie:any}) {
            <CardActionArea>
              <CardMedia
                component="img"
-               
+               height="300px"
                image={item.Poster}
                alt="green iguana"
                className='cardIMG'

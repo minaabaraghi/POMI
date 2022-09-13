@@ -25,33 +25,17 @@ function ManagementUserProfile() {
     location: 'Barcelona, Spain',
     followers: '465'
   };
-  const [allMovie, setAllMovie] = useState([]);
   const [Movie, setMovie] = useState([]);
-
-  useEffect(() => {
-    // movies({ search: 'titanic' }).then((res: any) => {
-    //   setAllMovie(res.Search);
-    //   setMovie(res.Search);
-    //   console.log('res', res.Search);
-    // })
-
-  }, []);
-
   const filterCards = (event: any) => {
     if (event.key !== 'Enter') return;
     
       movies({ search: event.target.value.toLowerCase() }).then((res: any) => {
-       if(res!=undefined){
-        setAllMovie(res.Search);
+       if(res.Search!=undefined){
+        
         setMovie(res.Search);
        }
     })
-    // const value = event.target.value.toLowerCase();
-    // const filterMovie = allMovie.filter((movie) =>
-    //   (movie.Title.toLowerCase().includes(value))
-    // );
-    // setMovie(filterMovie);
-
+  
   };
 
   return (
@@ -91,7 +75,7 @@ function ManagementUserProfile() {
           <Grid item xs={12} md={5}>
             {/* <Addresses /> */}
           </Grid>
-          {dataMovie && <MyCards dataMovie={Movie} />}
+          <MyCards dataMovie={Movie} />
         </Grid>
       </Container>
       <Footer />

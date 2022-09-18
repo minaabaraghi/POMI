@@ -29,10 +29,14 @@ function ManagementUserProfile() {
   const filterCards = (event: any) => {
     if (event.key !== 'Enter') return;
     
-      movies({ search: event.target.value.toLowerCase() }).then((res: any) => {
+      movies({ search: event.target.value.toLowerCase(),year:event.target.value }).then((res: any) => {
        if(res.Search!=undefined){
         
         setMovie(res.Search);
+       }
+       if(res.year!=undefined){
+        
+        setMovie(res.year);
        }
     })
   

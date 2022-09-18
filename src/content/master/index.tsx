@@ -3,15 +3,17 @@ import Footer from 'src/components/Footer';
 import { useState, useEffect } from 'react';
 import { Grid, Container } from '@mui/material';
 import './master.css';
-// import ProfileCover from './ProfileCover';
-// import RecentActivity from './RecentActivity';
-// import Feed from './Feed';
-// import PopularTags from './PopularTags';
 import MyCards from './MyCards';
 import dataMovie from 'src/data/response.json';
-// import Addresses from './Addresses';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select, { SelectChangeEvent } from '@mui/material/Select';
 import Text from './../../components/Text/index';
 import movies from 'src/services/movies';
+import Box from '@mui/material/Box';
+import { Button } from 'react-bootstrap';
+import { SettingsSystemDaydreamSharp } from '@mui/icons-material';
 
 function ManagementUserProfile() {
   const user = {
@@ -26,20 +28,25 @@ function ManagementUserProfile() {
     followers: '465'
   };
   const [Movie, setMovie] = useState([]);
+  const [title, setTitle] = useState('');
+  const [year, setYear] = useState(1990);
+  const [type, setType] = useState('');
   const filterCards = (event: any) => {
-    if (event.key !== 'Enter') return;
     
-      movies({ search: event.target.value.toLowerCase(),year:event.target.value }).then((res: any) => {
-       if(res.Search!=undefined){
-        
+    // if (event.key !== 'Enter') return;
+    if (title  ) {
+    movies({
+      search: title.toLowerCase(),
+      year: year,
+      type:type.toLowerCase()
+    
+    }).then((res: any) => {
+      console.log('1',res.Search);
+      
         setMovie(res.Search);
-       }
-       if(res.year!=undefined){
-        
-        setMovie(res.year);
-       }
-    })
+      
   
+    });}
   };
 
   return (
@@ -47,12 +54,39 @@ function ManagementUserProfile() {
       <Helmet>
         <title>User Details - Management</title>
       </Helmet>
-      <input
-        className="searchBoxMovie"
-        placeholder="search..."
-        onKeyDown={filterCards}
-        type="Text"
-      />
+      <div className="conatiner">
+        <input
+          className="searchBoxMovie"
+          placeholder="title..."
+          type="Text"
+          onKeyDown={(e: any) => setTitle(e.target.value)}
+        />
+           <input
+          className="searchBoxMovieYear"
+          placeholder="Year..."
+          type="Text"
+          onKeyDown={(e: any) => setYear(e.target.value )}
+        />
+        <Box sx={{ Width: '60%' }}>
+          <FormControl fullWidth>
+            <Select
+              id="demo-simple-select-helper"
+               value={type}
+              label="type"
+              onChange={(e: any) => setType(e.target.value as string)}
+            >
+              <MenuItem value={'movie'}>movie</MenuItem>
+              <MenuItem value={'series'}>series</MenuItem>
+              <MenuItem value={'episode'}>episode</MenuItem>
+            </Select>
+          </FormControl>
+        </Box>
+     
+        <Button onClick={filterCards} style={{ width: '60%',fontSize:'.78rem',marginLeft:'5%' }}>
+          advance Search
+        </Button>
+      </div>
+
       <Container sx={{ mt: 3 }} maxWidth="lg">
         <Grid
           container

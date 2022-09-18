@@ -15,6 +15,7 @@ const movies = (data:any): Promise<boolean> => {
 
     return axiosInstance(reqConfig).then((res) => {
         if (res.data) {
+            console.log('1',res.data);
         return res.data;
     }
     return false;

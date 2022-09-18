@@ -1,14 +1,26 @@
 /* search box*/
 .searchBoxMovie {
   outline: none;
-  width: 60%;
+  width: 93%;
   border: 1px solid grey;
   font-size: 1rem;
-  padding: 1rem;
+ 
   border-radius: 0.5rem;
-  margin-left: 20%;
-  margin-right: 20%;
-  margin-top: 10px;
+
+}
+.searchBoxMovieYear {
+  outline: none;
+  width: 90%;
+  border: 1px solid grey;
+  font-size: 1rem;
+ 
+  border-radius: 0.5rem;
+
+  
+}
+.divDropSearch{
+  display: inline-block !important;
+  background-color: yellow;
 }
 .css-o69gx8-MuiCardMedia-root {
   /* height:"200px" !important; */
@@ -18,4 +30,13 @@
 }
 .cardMovie {
   margin: 2%;
+}
+.conatiner{
+  display: grid;
+  grid-template-columns: 7fr 2fr 1fr 2fr;
+  margin-left: 2%;
+  
+  margin-top: 10px;
+  padding: 1%;
+
 }

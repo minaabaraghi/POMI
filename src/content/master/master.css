@@ -1,25 +1,21 @@
 /* search box*/
 .searchBoxMovie {
-    outline: none;
-    width: 60%;
-    border: 1px solid grey;
-    font-size: 1rem;
-    padding: 1rem;
-    border-radius: .5rem;
-    margin-left: 20%;
-    margin-right: 20%;
-    margin-top: 10px;
-  }
-  .css-o69gx8-MuiCardMedia-root{
-    /* height:"200px" !important; */
-    
-  }
-  .cardIMG{
-    
-    
-
-    object-fit:fill;
-  }
-  .cardMovie{
-    margin: 2%;
-  }
+  outline: none;
+  width: 60%;
+  border: 1px solid grey;
+  font-size: 1rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-top: 10px;
+}
+.css-o69gx8-MuiCardMedia-root {
+  /* height:"200px" !important; */
+}
+.cardIMG {
+  object-fit: fill;
+}
+.cardMovie {
+  margin: 2%;
+}

@@ -29,24 +29,16 @@ function ManagementUserProfile() {
   };
   const [Movie, setMovie] = useState([]);
   const [title, setTitle] = useState('');
-  const [year, setYear] = useState(1990);
-  const [type, setType] = useState('');
+  const [year, setYear] = useState(null);
+  const [type, setType] = useState('movie');
   const filterCards = (event: any) => {
-    
     // if (event.key !== 'Enter') return;
-    if (title  ) {
-    movies({
-      search: title.toLowerCase(),
-      year: year,
-      type:type.toLowerCase()
-    
-    }).then((res: any) => {
-      console.log('1',res.Search);
-      
-        setMovie(res.Search);
-      
-  
-    });}
+    if (title) {
+      movies(title, year, type).then((res: any) => {
+        if (res.Response === 'True') setMovie(res.Search);
+        else setMovie([]);
+      });
+    }
   };
 
   return (
@@ -59,19 +51,21 @@ function ManagementUserProfile() {
           className="searchBoxMovie"
           placeholder="title..."
           type="Text"
-          onKeyDown={(e: any) => setTitle(e.target.value)}
+          onChange={(e: any) => setTitle(e.target.value)}
         />
-           <input
+        <input
           className="searchBoxMovieYear"
           placeholder="Year..."
-          type="Text"
-          onKeyDown={(e: any) => setYear(e.target.value )}
+          type="number"
+          min="1990"
+          max="2050"
+          onChange={(e) => setYear(e.target.value)}
         />
         <Box sx={{ Width: '60%' }}>
           <FormControl fullWidth>
             <Select
               id="demo-simple-select-helper"
-               value={type}
+              value={type}
               label="type"
               onChange={(e: any) => setType(e.target.value as string)}
             >
@@ -81,8 +75,11 @@ function ManagementUserProfile() {
             </Select>
           </FormControl>
         </Box>
-     
-        <Button onClick={filterCards} style={{ width: '60%',fontSize:'.78rem',marginLeft:'5%' }}>
+
+        <Button
+          onClick={filterCards}
+          style={{ width: '60%', fontSize: '.78rem', marginLeft: '5%' }}
+        >
           advance Search
         </Button>
       </div>

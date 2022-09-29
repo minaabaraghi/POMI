@@ -14,6 +14,8 @@ import movies from 'src/services/movies';
 import Box from '@mui/material/Box';
 import { Button } from 'react-bootstrap';
 import { SettingsSystemDaydreamSharp } from '@mui/icons-material';
+import Pagination from '@mui/material/Pagination';
+import Stack from '@mui/material/Stack';
 
 function ManagementUserProfile() {
   const user = {
@@ -83,7 +85,7 @@ function ManagementUserProfile() {
           advance Search
         </Button>
       </div>
-
+      <Stack spacing={2}>
       <Container sx={{ mt: 3 }} maxWidth="lg">
         <Grid
           container
@@ -92,27 +94,12 @@ function ManagementUserProfile() {
           alignItems="stretch"
           spacing={3}
         >
-          <Grid item xs={12} md={8}>
-            {/* {<ProfileCover user={user} />} */}
-          </Grid>
-          <Grid item xs={12} md={4}>
-            {/* [<RecentActivity />] */}
-          </Grid>
-          <Grid item xs={12} md={8}>
-            {/* <Feed /> */}
-          </Grid>
-          <Grid item xs={12} md={4}>
-            {/* <PopularTags /> */}
-          </Grid>
-          <Grid item xs={12} md={7}>
-            {/* <MyCards /> */}
-          </Grid>
-          <Grid item xs={12} md={5}>
-            {/* <Addresses /> */}
-          </Grid>
+   
           <MyCards dataMovie={Movie} />
         </Grid>
       </Container>
+      <Pagination count={10} color="primary" />
+      </Stack>
       <Footer />
     </>
   );
